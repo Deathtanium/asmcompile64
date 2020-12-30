@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+asmfile=$1
+name=${asmfile%".asm"}
+ofile=${name}.o
+nasm -f elf64 $asmfile
+ld -s -o $name $ofile
+rm $ofile
